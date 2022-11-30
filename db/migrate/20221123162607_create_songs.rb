@@ -6,6 +6,7 @@ class CreateSongs < ActiveRecord::Migration[7.0]
       t.string :abc_notation
       t.string :info
       t.integer :user_id
+      t.integer :date
 
       t.timestamps
     end

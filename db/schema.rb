@@ -13,7 +13,9 @@
 ActiveRecord::Schema[7.0].define(version: 2022_11_28_204647) do
   create_table "guesses", force: :cascade do |t|
     t.string "abc"
+    t.float "accuracy"
     t.integer "user_id", null: false
+    t.integer "song_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["user_id"], name: "index_guesses_on_user_id"
@@ -25,6 +27,7 @@ ActiveRecord::Schema[7.0].define(version: 2022_11_28_204647) do
     t.string "abc_notation"
     t.string "info"
     t.integer "user_id"
+    t.integer "date"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
