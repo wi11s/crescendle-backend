@@ -11,6 +11,11 @@ class GuessesController < ApplicationController
         render json: guess, status: :created
     end
 
+    def song_guesses
+        guesses = Guess.where(user_id: params[:user_id], song_id: params[:song_id]).order(accuracy: :desc)
+        render json: guesses
+    end
+
     private
 
     def guess_params
