@@ -1,4 +1,4 @@
-class Play < ApplicationRecord
+class IndividualStat < ApplicationRecord
     belongs_to :user
     belongs_to :song
 end

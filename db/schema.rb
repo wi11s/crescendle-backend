@@ -21,10 +21,11 @@ ActiveRecord::Schema[7.0].define(version: 2022_11_30_164253) do
     t.index ["user_id"], name: "index_guesses_on_user_id"
   end
 
-  create_table "plays", force: :cascade do |t|
+  create_table "individual_stats", force: :cascade do |t|
     t.integer "user_id"
     t.integer "song_id"
     t.integer "number_of_plays"
+    t.boolean "completed"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
@@ -32,6 +33,8 @@ ActiveRecord::Schema[7.0].define(version: 2022_11_30_164253) do
   create_table "songs", force: :cascade do |t|
     t.string "name"
     t.string "artist"
+    t.string "key_signature"
+    t.string "time_signature"
     t.string "abc_notation"
     t.string "info"
     t.integer "user_id"
