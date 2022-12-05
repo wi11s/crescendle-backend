@@ -1,5 +1,5 @@
 class UsersController < ApplicationController
-    skip_before_action :authorized, only: [:create, :index]
+    skip_before_action :authorized, only: [:create, :create_with_data, :index, :update]
     rescue_from ActiveRecord::RecordInvalid, with: :handle_invalid_record
 
     def me
@@ -8,6 +8,32 @@ class UsersController < ApplicationController
 
     def create 
         user = User.create!(user_params)
+        user.update(streak: 0)
+        @token = encode_token(user_id: user.id)
+        render json: {
+            user: UserSerializer.new(user), 
+            token: @token
+        }, status: :created
+    end
+
+    def create_with_data
+        user = User.create!(user_params)
+        user.update(streak: params[:streak])
+        IndividualStat.where(user_id: params[:id]).each do |stat|
+            stat.update(user_id: user.id)
+        end
+        Guess.where(user_id: params[:id]).each do |guess|
+            guess.update(user_id: user.id)
+        end
+        @token = encode_token(user_id: user.id)
+        render json: {
+            user: UserSerializer.new(user), 
+            token: @token
+        }, status: :created
+    end
+
+    def update
+        user = User.find(params[:id]).update(user_params)
         @token = encode_token(user_id: user.id)
         render json: {
             user: UserSerializer.new(user), 
@@ -24,10 +50,10 @@ class UsersController < ApplicationController
     private
 
     def user_params 
-        params.permit(:email, :name, :password)
+        params.permit(:email, :name, :password, :password_confirmation)
     end
 
     def handle_invalid_record(e)
-            render json: { errors: e.record.errors.full_messages }, status: :unprocessable_entity
+        render json: { errors: e.record.errors.full_messages }, status: :unprocessable_entity
     end
 end
