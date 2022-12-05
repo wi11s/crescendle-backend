@@ -15,6 +15,12 @@ class UsersController < ApplicationController
         }, status: :created
     end
 
+    def update_streak
+        user = User.find(params[:id])
+        user.complete_todays_song(params[:date])
+        render json: user
+    end
+
     private
 
     def user_params 

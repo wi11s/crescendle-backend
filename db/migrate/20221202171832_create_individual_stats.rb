@@ -4,7 +4,8 @@ class CreateIndividualStats < ActiveRecord::Migration[7.0]
       t.integer :user_id
       t.integer :song_id
       t.integer :number_of_plays
-      t.boolean :completed
+      t.integer :number_of_guesses
+      t.integer :completed
 
       t.timestamps
     end

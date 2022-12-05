@@ -1,6 +1,6 @@
 Rails.application.routes.draw do
   resources :test_things
-  resources :plays, only: [:create]
+  resources :individual_stats, only: [:create]
   resources :guesses, only: [:create, :index]
   resources :songs
   resources :users, only: [:create]
@@ -13,4 +13,6 @@ Rails.application.routes.draw do
   post "/song_plays/:user_id/:song_id", to: "individual_stats#create"
   patch "/song_plays/:user_id/:song_id", to: "individual_stats#update"
   patch "/completed/:user_id/:song_id", to: "individual_stats#completed"
+  get "/stats/:date", to: "individual_stats#stats"
+  patch "/users/:id/:date", to: "users#update_streak"
 end

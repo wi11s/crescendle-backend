@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2022_11_30_164253) do
+ActiveRecord::Schema[7.0].define(version: 2022_12_02_171832) do
   create_table "guesses", force: :cascade do |t|
     t.string "abc"
     t.float "accuracy"
@@ -25,7 +25,8 @@ ActiveRecord::Schema[7.0].define(version: 2022_11_30_164253) do
     t.integer "user_id"
     t.integer "song_id"
     t.integer "number_of_plays"
-    t.boolean "completed"
+    t.integer "number_of_guesses"
+    t.integer "completed"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
@@ -47,6 +48,7 @@ ActiveRecord::Schema[7.0].define(version: 2022_11_30_164253) do
     t.string "name"
     t.string "email"
     t.string "password_digest"
+    t.integer "streak"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end

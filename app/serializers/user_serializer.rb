@@ -1,3 +1,3 @@
 class UserSerializer < ActiveModel::Serializer
-  attributes :id, :guesses
+  attributes :id, :guesses, :streak
 end
