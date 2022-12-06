@@ -31,6 +31,12 @@ class IndividualStatsController < ApplicationController
         render json: {number_of_completes: number_of_completes, mean_plays: mean_plays, median_plays: median_plays}
     end
 
+    def user_stats
+        user = User.find(params[:user_id])
+        mean = user.individual_stats.where(completed: true).average(:number_of_plays)
+        render json: mean
+    end
+
     private
 
     def play_params

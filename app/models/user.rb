@@ -4,6 +4,7 @@ class User < ApplicationRecord
 
     has_many :guesses, dependent: :destroy
     has_many :individual_stats, dependent: :destroy
+    has_many :goals
 
     def complete_todays_song(yesterday)
         song = Song.find_by(date: yesterday)

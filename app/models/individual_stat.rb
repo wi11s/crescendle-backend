@@ -14,7 +14,7 @@ class IndividualStat < ApplicationRecord
         midpoint = plays_data.length / 2
 
         if plays_data.length.even?
-            return sorted[midpoint-1, 2].sum / 2.0
+            return sorted[midpoint-1, 2].sum(0.0) / 2.0
         else
             return sorted[midpoint]
         end

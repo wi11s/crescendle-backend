@@ -16,4 +16,9 @@ Rails.application.routes.draw do
   get "/stats/:date", to: "individual_stats#stats"
   patch "/users/:id/:date", to: "users#update_streak"
   post "/users_with_data/:streak/:id", to: "users#create_with_data"
+  get "/user_stats/:user_id", to: "individual_stats#user_stats"
+  get "/user_guess_stats/:user_id", to: "guesses#user_guess_stats"
+  get "/goals/:user_id", to: "goals#index"
+  post "/goals/:user_id", to: "goals#create"
+  patch "/goals/:id/:user_id", to: "goals#update"
 end

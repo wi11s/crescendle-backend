@@ -10,7 +10,16 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2022_12_02_171832) do
+ActiveRecord::Schema[7.0].define(version: 2022_12_06_153827) do
+  create_table "goals", force: :cascade do |t|
+    t.string "content"
+    t.integer "complete"
+    t.string "complete_by"
+    t.integer "user_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
   create_table "guesses", force: :cascade do |t|
     t.string "abc"
     t.float "accuracy"
