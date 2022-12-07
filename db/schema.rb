@@ -45,6 +45,8 @@ ActiveRecord::Schema[7.0].define(version: 2022_12_07_010659) do
     t.string "first"
     t.string "second"
     t.string "third"
+    t.string "first_note"
+    t.string "last_note"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end

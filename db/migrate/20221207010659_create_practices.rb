@@ -5,6 +5,8 @@ class CreatePractices < ActiveRecord::Migration[7.0]
       t.string :first
       t.string :second
       t.string :third
+      t.string :first_note
+      t.string :last_note
 
       t.timestamps
     end
