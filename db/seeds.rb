@@ -8,3 +8,11 @@ Song.create(name: 'Example', artist: 'Example', key_signature: 'G', time_signatu
 Song.create(name: 'Example', artist: 'Example', key_signature: 'G', time_signature: '4/4', abc_notation: '|:G2c2c2c2|c2c2c2c2|c8|', info: 'Example', user_id: nil, date: 12102022)
 Song.create(name: 'Example', artist: 'Example', key_signature: 'G', time_signature: '4/4', abc_notation: '|:G2c2c2c2|c2c2c2c2|c8|', info: 'Example', user_id: nil, date: 12112022)
 Song.create(name: 'Example', artist: 'Example', key_signature: 'G', time_signature: '4/4', abc_notation: '|:G2c2c2c2|c2c2c2c2|c8|', info: 'Example', user_id: nil, date: 12122022)
+
+
+Practice.create(name: 'Cmajor', first: 'C2DEFGAB', second: 'c2BAGFED', third: 'C2')
+Practice.create(name: 'Gmajor', first: 'G2ABcde^f', second: 'g2^fedcBA', third: 'G2')
+Practice.create(name: 'Dmajor', first: 'D2E^FGAB^c', second: 'd2^cBAG^FE', third: 'D2')
+Practice.create(name: 'Amajor', first: 'A2B^cde^f^g', second: 'a2^g^fed^cB', third: 'A2')
+Practice.create(name: 'Emajor', first: 'E2^F^GAB^c^d', second: 'e2^d^cBA^G^F', third: 'E2')
+Practice.create(name: 'Bmajor', first: 'B2^c^de^f^g^a', second: 'b2^a^g^fe^d^c', third: 'B2')

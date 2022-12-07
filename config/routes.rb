@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  resources :practices
   resources :test_things
   resources :individual_stats, only: [:create]
   resources :guesses, only: [:create, :index]
