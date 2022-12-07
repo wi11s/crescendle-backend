@@ -47,6 +47,13 @@ class UsersController < ApplicationController
         render json: user
     end
 
+    def update_interval_high_score
+        user = User.find(params[:id])
+        user.update(interval_high_score: params[:interval_high_score])
+        render json: user
+    end
+
+
     private
 
     def user_params 

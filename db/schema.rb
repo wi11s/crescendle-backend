@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2022_12_07_010659) do
+ActiveRecord::Schema[7.0].define(version: 2022_12_07_184728) do
   create_table "goals", force: :cascade do |t|
     t.string "content"
     t.integer "complete"
@@ -71,6 +71,7 @@ ActiveRecord::Schema[7.0].define(version: 2022_12_07_010659) do
     t.integer "streak"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.integer "interval_high_score"
   end
 
   add_foreign_key "guesses", "users"
