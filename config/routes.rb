@@ -15,7 +15,7 @@ Rails.application.routes.draw do
   patch "/song_plays/:user_id/:song_id", to: "individual_stats#update"
   patch "/completed/:user_id/:song_id", to: "individual_stats#completed"
   get "/stats/:date", to: "individual_stats#stats"
-  patch "/users/:id/:date", to: "users#update_streak"
+  patch "/streak/:id/:date", to: "users#update_streak"
   patch "/high_score/:id", to: "users#update_interval_high_score"
   post "/users_with_data/:streak/:id", to: "users#create_with_data"
   get "/user_stats/:user_id", to: "individual_stats#user_stats"
